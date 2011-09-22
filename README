@@ -1,3 +1,19 @@
+----
+
+Galaxy Tab P1000L/N Kernel based on Overcome Kernel
+
+This Kernel is aimed to those who have a Galaxy Tab P1000L/N
+with Android Gingerbread (2.3.3).
+
+It was originally built using Overcome Kernel v3.3.1 with
+Samsung's patches for P1000L/N devices.
+
+For more information, refer to the thread on XDA forum:
+
+http://forum.xda-developers.com/showthread.php?t=1124224
+
+----
+
 	Linux kernel release 2.6.xx <http://kernel.org/>
 
 These are the release notes for Linux version 2.6.  Read them carefully,
