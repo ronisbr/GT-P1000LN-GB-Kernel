@@ -129,12 +129,13 @@ config CPU_FREQ_DEFAULT_GOV_INTERACTIVE
 	 Use the 'interactive' governor as default. This gets full cpu frequency
 	 scaling for workloads that are latency sensitive, typically interactive
 	 workloads..
+
 config CPU_FREQ_DEFAULT_GOV_SMARTASS
-  bool "smartass"
-  select CPU_FREQ_GOV_SMARTASS
-  select CPU_FREQ_GOV_PERFORMANCE
-  help
-    Use the CPUFreq governor 'smartass' as default.
+	bool "smartass"
+	select CPU_FREQ_GOV_SMARTASS
+	select CPU_FREQ_GOV_PERFORMANCE
+	help
+	  Use the CPUFreq governor 'smartass' as default.
 
 config CPU_FREQ_DEFAULT_GOV_LAGFREE
 	bool "lagfree"
@@ -155,7 +156,7 @@ config CPU_FREQ_DEFAULT_GOV_SMOOTHASS
 	help
 	  Use CPUFREQ smoothass as default.
 
- endchoice
+endchoice
 
 config CPU_FREQ_GOV_LAGFREE
 	tristate "'lagfree' cpufreq governor"
@@ -196,12 +197,12 @@ config CPU_FREQ_GOV_SMOOTHASS
 	  Slightly more aggressive smartass
 
 config CPU_FREQ_GOV_SMARTASS
-  tristate "'smartass' cpufreq governor"
-  depends on CPU_FREQ
-  help
-    'smartass' - a "smart" optimized governor for the hero!
+	tristate "'smartass' cpufreq governor"
+	depends on CPU_FREQ
+	help
+	'smartass' - a "smart" optimized governor for the hero!
 
-    If in doubt, say N.
+	If in doubt, say N.
 
 config SMARTASS_SLEEP_MAX
 	int "Sleep Max Freq"
