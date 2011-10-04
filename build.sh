@@ -4,7 +4,7 @@
 # by Frank aka AlterBridge86
 
 # Building directory
-BUILDDIR='../build'
+BUILDDIR='../kernel-build-dir'
 
 # For some reason, the Kernel doesn't boot if
 # there is a .git directory with commits by the
