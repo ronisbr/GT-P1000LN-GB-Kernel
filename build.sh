@@ -3,6 +3,9 @@
 # Adapted from Overcome build scripts written
 # by Frank aka AlterBridge86
 
+# Building directory
+BUILDDIR='../build'
+
 # For some reason, the Kernel doesn't boot if
 # there is a .git directory with commits by the
 # time it was built.
@@ -13,7 +16,25 @@ then
 	mv .git .gitold
 fi
 
-make
+# If exists, rename .config to avoid problems and
+# copy it to build directory.
+if [ -e .config ];
+then
+	cp .config ${BUILDDIR}/
+	mv .config .config.bak
+fi
+
+# Execute oldconfig.
+make O=${BUILDDIR} oldconfig
+
+# Build the kernel.
+make O=${BUILDDIR}
+
+# Restore .config if needed.
+if [ -e .config.bak ];
+then
+	mv .config.bak .config
+fi
 
 if [ -d ".gitold" ];
 then
