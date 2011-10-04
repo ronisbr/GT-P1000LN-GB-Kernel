@@ -13,10 +13,6 @@ then
 	mv .git .gitold
 fi
 
-cd drivers/misc/samsung_modemctl
-make
-cd ../../..
-
 make
 
 if [ -d ".gitold" ];
