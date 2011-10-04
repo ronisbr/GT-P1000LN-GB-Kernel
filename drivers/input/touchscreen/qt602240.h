@@ -68,7 +68,7 @@
 #define GPIO_OUTPUT		1
 #endif
 
-#define MAX_USING_FINGER_NUM	      5
+#define MAX_USING_FINGER_NUM	      10
 
 #define I2C_M_WR 0 /* for i2c */
 #define I2C_MAX_SEND_LENGTH     300

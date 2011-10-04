@@ -513,7 +513,7 @@ static int QT602240_Multitouch_Config_Init(struct qt602240_data *data)
 #else
     touchscreen_config.movfilter = 0x0b;              // Filter Limit[6:4] , Adapt threshold [3:0]
 #endif
-    touchscreen_config.numtouch= 0x05;
+    touchscreen_config.numtouch= 0x0a;
     touchscreen_config.tchdi = 0x02;
     touchscreen_config.mrghyst = 0x5;               // Merge hysteresis
     touchscreen_config.mrgthr = 0x5;//0xa            // Merge threshold
@@ -1171,7 +1171,7 @@ static void qt602240_input_read(struct qt602240_data *data)
 			bChangeUpDn= 1;
 		} else if ((touch_status & 0xf0 ) == 0xc0) {                                  // Detect & Press  : 0x80 | 0x40
 			touch_message_flag = true;
-			s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L1);
+			s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_7, L7); // 600 MHz
 			fingerInfo[id].pressure= 40;
 			fingerInfo[id].x= (int16_t)x;
 			fingerInfo[id].y= (int16_t)y;
@@ -2166,7 +2166,7 @@ static int __devinit qt602240_probe(struct i2c_client *client,
     p_qt602240_data = data;
 
     /* for multi-touch */
-    for (i=0; i<MAX_USING_FINGER_NUM ; i++)		// touchscreen_config.numtouch is 5
+    for (i=0; i<MAX_USING_FINGER_NUM ; i++)		// touchscreen_config.numtouch is 10
     {
         fingerInfo[i].pressure = -1;
     }
