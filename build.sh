@@ -6,11 +6,14 @@
 # Building directory
 BUILDDIR='../kernel-build-dir'
 
-# For some reason, the Kernel doesn't boot if
-# there is a .git directory with commits by the
-# time it was built.
-# So it moves .git to .gitold, builds the kernel
-# and then move it back to .git.
+# Check if BUILDDIR exists, if not, create it.
+if [ ! -e $BUILDDIR ];
+then
+        mkdir $BUILDDIR
+fi
+
+# Rename .git to avoid problems while building the
+# kernel.
 if [ -d ".git" ];
 then
 	mv .git .gitold
