@@ -30,6 +30,19 @@ fi
 # Execute oldconfig.
 make O=${BUILDDIR} oldconfig
 
+# Copy samsung modemctl driver that was built with
+# 2009q03 toolchain to avoid issues.
+cd ./drivers/misc/samsung_modemctl/
+make
+cd ../../../
+
+if [ ! -e ${BUILDDIR}/drivers/misc/samsung_modemctl ];
+then
+       mkdir ${BUILDDIR}/drivers/misc/samsung_modemctl
+fi
+
+mv ./drivers/misc/samsung_modemctl/built-in.o ${BUILDDIR}/drivers/misc/samsung_modemctl/
+
 # Build the kernel.
 make O=${BUILDDIR}
 
