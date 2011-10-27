@@ -38,7 +38,7 @@ cd ../../../
 
 if [ ! -e ${BUILDDIR}/drivers/misc/samsung_modemctl ];
 then
-       mkdir ${BUILDDIR}/drivers/misc/samsung_modemctl
+       mkdir -p ${BUILDDIR}/drivers/misc/samsung_modemctl
 fi
 
 mv ./drivers/misc/samsung_modemctl/built-in.o ${BUILDDIR}/drivers/misc/samsung_modemctl/
