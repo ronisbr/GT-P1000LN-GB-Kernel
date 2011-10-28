@@ -8,4 +8,4 @@
 #
 # Thanks to alterbridge86.
 all:
-	cp samsung_modemctl_built-in_2009q03.o built-in.o
+	cp samsung_modemctl_built-in_2009q03 built-in.o
