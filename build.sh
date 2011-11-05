@@ -4,7 +4,7 @@
 # by Frank aka AlterBridge86
 
 # Building directory
-BUILDDIR='../kernel-build-dir'
+BUILDDIR='../kernel-build-dir-p1000l'
 
 # Check if BUILDDIR exists, if not, create it.
 if [ ! -e $BUILDDIR ];
