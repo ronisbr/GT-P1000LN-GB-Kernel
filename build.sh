@@ -19,16 +19,8 @@ then
 	mv .git .gitold
 fi
 
-# If exists, rename .config to avoid problems and
-# copy it to build directory.
-if [ -e .config ];
-then
-	cp .config ${BUILDDIR}/
-	mv .config .config.bak
-fi
-
 # Execute oldconfig.
-make O=${BUILDDIR} oldconfig
+make O=${BUILDDIR} p1_ltn_ronan_defconfig
 
 # Copy samsung modemctl driver that was built with
 # 2009q03 toolchain to avoid issues.
@@ -45,12 +37,6 @@ mv ./drivers/misc/samsung_modemctl/built-in.o ${BUILDDIR}/drivers/misc/samsung_m
 
 # Build the kernel.
 make O=${BUILDDIR}
-
-# Restore .config if needed.
-if [ -e .config.bak ];
-then
-	mv .config.bak .config
-fi
 
 if [ -d ".gitold" ];
 then
